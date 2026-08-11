@@ -1,3 +1,5 @@
+name: maestro
+
 services:
   maestro-web:
     build:
@@ -14,6 +16,11 @@ services:
       interval: 30s
       timeout: 5s
       retries: 3
+    labels:
+      kuma.maestro.group.name: "maestro"
+      kuma.maestro-web.http.name: "website"
+      kuma.maestro-web.http.parent_name: "maestro"
+      kuma.maestro-web.http.url: "https://maestro.atbas.xyz"
 
 networks:
   ea-ingress:
